@@ -1,0 +1,38 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<div class="container">
+    <h1>Welcome to the Fruit Store</h1>
+    <p>Explore our variety of fresh fruits!</p>
+</div>
+ <a href="{% url 'createFruit' %}" class="btn btn-primary">Add fruit</a>
+        </div>
+    </div>
+
+    {% if fruits %}
+    <h3>Fruit</h3>
+    {% for Fruit in fruits %}
+    <div class="card mb-3 p-3">
+        <div class="d-flex justify-content-between align-items-start">
+            <div>
+                <h4>{{ Fruit.name }}</h4>
+
+                <p class="mb-1">{{ Fruit.description }}</p>
+                <div class="badge bg-dark"> {{ Fruit.price}}ksh</div>
+            </div>
+            <div>
+                <a href="{% url 'fruit-detail' city.pk %}" class="btn btn-sm btn-info">View</a>
+                <a href="{% url 'update-fruit' city.pk %}" class="btn btn-sm btn-warning">Edit</a>
+                <a href="{% url 'delete-fruit' city.pk %}" class="btn btn-sm btn-danger">Delete</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    {% endif %}
+     {% if not fruits %}
+    <p>No fruit yet. Use the buttons above to add a fruit.</p>
+    {% endif %}
+
+</div>
+
+{% endblock %}
