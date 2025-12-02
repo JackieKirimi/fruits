@@ -11,7 +11,7 @@
             </a>
         </div>
     </div>
-    {% if cities %}
+    {% if fruits %}
     <div class="row">
         {% for fruit in fruits %}
         <div class="col-md-4 mb-4">
@@ -23,7 +23,7 @@
                     <p class="card-text"><strong>Color:</strong> {{ fruit.color }}</p>
                 </div>
                 <div class="card-footer text-end">
-                    <a href ="{% url 'fruit-details' fruit.id %}" class="btn btn-primary btn-sm">View details</a>
+                    <a href ="{% url 'fruit-detail' fruit.id %}" class="btn btn-primary btn-sm">View details</a>
                     </div>
             </div>
         </div>
